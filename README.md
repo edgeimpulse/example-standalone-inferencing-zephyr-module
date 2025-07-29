@@ -1,0 +1,1 @@
+# Edge Impulse Example: standalone inferencing (Zephyr module)

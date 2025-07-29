@@ -1,0 +1,8 @@
+
+manifest:
+
+  remotes:
+    - name: edge-impulse-sdk-zephyr
+      path: modules/edge-impulse-sdk-zephyr
+      revision: main
+      url: https://github.com/edgeimpulse/edge-impulse-sdk-zephyr
