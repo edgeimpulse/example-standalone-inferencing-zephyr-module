@@ -53,4 +53,4 @@ Then flash it
 west flash
 ```
 
-You can specify the board you want to test by modyfing the `.west/config` or by calling `west build -b <your board> -p`
+You can specify the board you want to test by modifying the `.west/config` or by calling `west build -b <your board> -p`
