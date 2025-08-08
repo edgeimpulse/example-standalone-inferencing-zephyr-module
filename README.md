@@ -19,6 +19,15 @@ Here's the lines to add the EI-SDK:
       url: https://github.com/edgeimpulse/edge-impulse-sdk-zephyr
 ```
 
+1. Use this project as a manifest repository, running 
+```
+west init --local .
+cd ..
+west update
+```
+
+to pull the projects needed.
+
 Check the [Zephyr module documentation](https://docs.zephyrproject.org/latest/develop/modules.html) for best practice.
 
 ## Update model
