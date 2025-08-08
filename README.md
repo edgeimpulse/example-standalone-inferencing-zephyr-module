@@ -2,14 +2,11 @@
 
 This runs an exported impulse on most Zephyr development boards using Edge Impulse SDK Zephyr module and the Zephyr model deployment.
 
-## Add Edge Ipmulse SDK module to your environment
 This project differs from [example-standalone-inferencing-zephyr](https://github.com/edgeimpulse/example-standalone-inferencing-zephyr) because it uses the [Edge Impulse SDK Zepyhr module](https://github.com/edgeimpulse/edge-impulse-sdk-zephyr) and the Zephyr library deployment for the model instead of copying the C++ library export.
 
 ## Import the Edge Impulse SDK
-There are different ways to import the [Edge Impulse SDK Zepyhr module](https://github.com/edgeimpulse/edge-impulse-sdk-zephyr):
+There are different ways to import the [Edge Impulse SDK Zepyhr module](https://github.com/edgeimpulse/edge-impulse-sdk-zephyr) to be used with this project:
 1. Update the `west.yml` of your Zephyr repo adding the lines below for the SDK then call `west update` to downlaod the SDK into your Zepyr repo.
-
-1. Update (or add) the `manifest.yml` of your local project adding the lines below for the SDK then call `west update` to downlaod the SDK into your Zepyr repo.
 
 Here's the lines to add the EI-SDK:
 ```
@@ -19,19 +16,18 @@ Here's the lines to add the EI-SDK:
       url: https://github.com/edgeimpulse/edge-impulse-sdk-zephyr
 ```
 
-1. Use this project as a manifest repository, running 
+2. Use this project as a manifest repository, running from this project folder:
 ```
 west init --local .
 cd ..
 west update
 ```
-
 to pull the projects needed.
 
 Check the [Zephyr module documentation](https://docs.zephyrproject.org/latest/develop/modules.html) for best practice.
 
 ## Update model
-Go yo the deployment page of your project and choose the Zephyr library option and extract the .zip in the parent folder of this project.
+Go to the deployment page of your project and choose the Zephyr library option and extract the .zip in the parent folder of this project.
 
 Then update the sample you want to test in [main.cpp](./src/main.cpp) :
 ```
@@ -45,3 +41,16 @@ Right now the extracted model folder should be placed on the parent folder of th
 ```
 list(APPEND ZEPHYR_EXTRA_MODULES ${CMAKE_CURRENT_SOURCE_DIR}/../model-zephyr)
 ```
+
+## Build and flash
+Build the project running
+```
+west build -p
+```
+
+Then flash it
+```
+west flash
+```
+
+You can specify the board you want to test by modyfing the `.west/config` or by calling `west build -b <your board> -p`
