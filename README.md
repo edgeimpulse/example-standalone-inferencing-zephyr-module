@@ -22,7 +22,7 @@ west init --local .
 cd ..
 west update
 ```
-to pull the projects needed.
+to pull or update the modules needed.
 
 Check the [Zephyr module documentation](https://docs.zephyrproject.org/latest/develop/modules.html) for best practice.
 
@@ -37,9 +37,9 @@ static const float features[] = {
 };
 ```
 
-Right now the extracted model folder should be placed on the parent folder of this project, see [CMakeLists.txt](./CMakeLists.txt)
+The extracted model should be placed here [model](./model/) see [CMakeLists.txt](./CMakeLists.txt)
 ```
-list(APPEND ZEPHYR_EXTRA_MODULES ${CMAKE_CURRENT_SOURCE_DIR}/../model-zephyr)
+list(APPEND ZEPHYR_EXTRA_MODULES ${CMAKE_CURRENT_SOURCE_DIR}/model)
 ```
 
 ## Build and flash
