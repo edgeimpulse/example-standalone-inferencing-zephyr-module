@@ -4,6 +4,15 @@ This runs an exported impulse on most Zephyr development boards using Edge Impul
 
 This project differs from [example-standalone-inferencing-zephyr](https://github.com/edgeimpulse/example-standalone-inferencing-zephyr) because it uses the [Edge Impulse SDK Zepyhr module](https://github.com/edgeimpulse/edge-impulse-sdk-zephyr) and the Zephyr library deployment for the model instead of copying the C++ library export.
 
+## Initialize this repo
+To initialize this repo, run:
+```
+west init -m https://github.com/edgeimpulse/example-standalone-inferencing-zephyr-module
+cd example-standalone-inferencing-zephyr-module
+west update
+```
+`zephyr` and the latest available `Edge Impulse SDK` will be pulled.
+
 ## Import the Edge Impulse SDK
 There are different ways to import the [Edge Impulse SDK Zepyhr module](https://github.com/edgeimpulse/edge-impulse-sdk-zephyr) to be used with this project:
 1. Update the `west.yml` of your Zephyr repo adding the lines below for the SDK then call `west update` to downlaod the SDK into your Zepyr repo.

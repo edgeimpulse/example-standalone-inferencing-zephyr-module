@@ -14,7 +14,7 @@ manifest:
     - name: edge-impulse-sdk-zephyr
       description: Edge Impulse SDK for Zephyr
       path: modules/edge-impulse-sdk-zephyr
-      revision: SET_ME
+#      revision: SET_ME
       url: https://github.com/edgeimpulse/edge-impulse-sdk-zephyr
 
   self:
