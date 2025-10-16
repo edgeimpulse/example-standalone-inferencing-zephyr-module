@@ -6,6 +6,7 @@
 #include <zephyr.h>
 #endif
 #include "edge-impulse-sdk/classifier/ei_run_classifier.h"
+#include "edge-impulse-sdk/porting/ei_classifier_porting.h"
 #include "edge-impulse-sdk/dsp/numpy.hpp"
 #ifdef EI_NORDIC
 #include <nrfx_clock.h>
