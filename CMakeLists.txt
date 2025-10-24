@@ -18,17 +18,21 @@ include(utils/cmake/utils.cmake)
 # Needed for colorful output
 zephyr_compile_options(-fdiagnostics-color=always)
 
-if("${BOARD}" MATCHES "esp32s3")
-    message(STATUS "esp32s3")
-    add_definitions(-DEI_CLASSIFIER_TFLITE_ENABLE_ESP_NN=1) # enables ESP-NN optimizations by Espressif
-    add_definitions(-DEI_CLASSIFIER_TFLITE_ENABLE_ESP_NN_S3=1) # enables ESP-NN optimizations by Espressif
+if("${BOARD}" MATCHES "esp32")
+    message(STATUS "detected: esp32")
+    add_definitions(-DEI_CLASSIFIER_TFLITE_ENABLE_ESP_NN=1) # enables ESP-NN optimizations by Espressif    
     add_definitions(-DEIDSP_USE_ESP_DSP=1) # enables ESP-DSP optimizations by Espressif
     add_definitions(-Dasm=__asm__) # needed for ESP-NN headers
+    #if ("${BOARD}" STREQUAL "esp32s3")
+    #    add_definitions(-DEI_CLASSIFIER_TFLITE_ENABLE_ESP_NN_S3=1) # enables ESP-NN optimizations by Espressif
+    #endif()
 elseif("${ARCH}" STREQUAL "arm")
-    message(STATUS "ARM architecture")
+    message(STATUS "detected: ARM architecture")
     add_definitions(-DEI_CLASSIFIER_TFLITE_ENABLE_CMSIS_NN=1
                     -DARM_MATH_LOOPUNROLL
                     )
+else()  
+    message(STATUS "Not including DSP or NN extensions")
 endif()
 # If using Nordic boards, add the following definition
 # -DEI_NORDIC
