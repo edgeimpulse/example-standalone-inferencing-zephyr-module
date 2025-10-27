@@ -20,12 +20,6 @@ zephyr_compile_options(-fdiagnostics-color=always)
 
 if("${BOARD}" MATCHES "esp32")
     message(STATUS "detected: esp32")
-    add_definitions(-DEI_CLASSIFIER_TFLITE_ENABLE_ESP_NN=1) # enables ESP-NN optimizations by Espressif    
-    add_definitions(-DEIDSP_USE_ESP_DSP=1) # enables ESP-DSP optimizations by Espressif
-    add_definitions(-Dasm=__asm__) # needed for ESP-NN headers
-    #if ("${BOARD}" STREQUAL "esp32s3")
-    #    add_definitions(-DEI_CLASSIFIER_TFLITE_ENABLE_ESP_NN_S3=1) # enables ESP-NN optimizations by Espressif
-    #endif()
 elseif("${ARCH}" STREQUAL "arm")
     message(STATUS "detected: ARM architecture")
     add_definitions(-DEI_CLASSIFIER_TFLITE_ENABLE_CMSIS_NN=1
