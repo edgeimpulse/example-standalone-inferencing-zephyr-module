@@ -22,9 +22,6 @@ if("${BOARD}" MATCHES "esp32")
     message(STATUS "detected: esp32")
 elseif("${ARCH}" STREQUAL "arm")
     message(STATUS "detected: ARM architecture")
-    add_definitions(-DEI_CLASSIFIER_TFLITE_ENABLE_CMSIS_NN=1
-                    -DARM_MATH_LOOPUNROLL
-                    )
 else()  
     message(STATUS "Not including DSP or NN extensions")
 endif()
