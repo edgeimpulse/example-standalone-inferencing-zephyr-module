@@ -66,6 +66,15 @@ Build the project running
 west build -p
 ```
 
+> [!NOTE]
+> If you need to build the application and the bootloader, rememebr to add the --sysbuild parameter.
+> ```
+> west build --sysbuild -p
+> ```
+> See [Sysbuild (System build)](https://docs.zephyrproject.org/latest/build/sysbuild/index.html) for more info
+
+
+
 Then flash it
 ```
 west flash
