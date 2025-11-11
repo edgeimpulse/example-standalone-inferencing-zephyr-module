@@ -51,11 +51,29 @@ The extracted model should be placed here [model](./model/) see [CMakeLists.txt]
 list(APPEND ZEPHYR_EXTRA_MODULES ${CMAKE_CURRENT_SOURCE_DIR}/model)
 ```
 
+## Target support
+Based on your target, you may need to adapt the [prj.conf](./prj.conf).
+
+### ESP32
+You need to uncomment this line:
+```
+CONFIG_BOOTLOADER_MCUBOOT=y
+```
+
 ## Build and flash
 Build the project running
 ```
 west build -p
 ```
+
+> [!NOTE]
+> If you need to build the application and the bootloader, rememebr to add the --sysbuild parameter.
+> ```
+> west build --sysbuild -p
+> ```
+> See [Sysbuild (System build)](https://docs.zephyrproject.org/latest/build/sysbuild/index.html) for more info
+
+
 
 Then flash it
 ```
