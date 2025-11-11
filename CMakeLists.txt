@@ -23,7 +23,8 @@ if("${BOARD}" MATCHES "esp32")
 elseif("${ARCH}" STREQUAL "arm")
     message(STATUS "detected: ARM architecture")
 else()  
-    message(STATUS "Not including DSP or NN extensions")
+    message(STATUS "arch is 
+    ${ARCH}")
 endif()
 # If using Nordic boards, add the following definition
 # -DEI_NORDIC
